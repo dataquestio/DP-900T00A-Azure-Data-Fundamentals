@@ -4,7 +4,7 @@ az extension add --name stream-analytics
 az provider register --namespace 'Microsoft.Devices' --wait 2>nul
 az provider register --namespace 'Microsoft.StreamAnalytics' --wait 2>nul
 
-rg=$(az group list --query "[].name" -o tsv | head -n 1);
+rg=$(az group list --query "[].name" -o tsv | grep Resource | head -n 1);
 
 echo "Using the $rg resource group..."
 guid=$(cat /proc/sys/kernel/random/uuid)
